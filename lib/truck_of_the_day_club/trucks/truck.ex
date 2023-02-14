@@ -6,6 +6,15 @@ defmodule TruckOfTheDayClub.Trucks.Truck do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          applicant: String.t(),
+          locationdescription: String.t(),
+          address: String.t(),
+          status: String.t(),
+          fooditems: String.t(),
+          schedule: String.t()
+        }
+
   schema "trucks" do
     field :applicant, :string
     field :locationdescription, :string
