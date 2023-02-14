@@ -22,6 +22,7 @@ defmodule TruckOfTheDayClubWeb.TrucksLive do
     |> Enum.map_join(", ", fn str -> String.capitalize(str) end)
   end
 
+  # TOTD is still being updated twice during page load
   defp get_a_random_truck_and_assign(%{assigns: %{name: _name}} = socket), do: socket
 
   defp get_a_random_truck_and_assign(socket) do

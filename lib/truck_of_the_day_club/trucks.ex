@@ -1,7 +1,6 @@
 defmodule TruckOfTheDayClub.Trucks do
   @moduledoc """
   Context for food trucks
-  This should be continued to fine tune the upsert
   """
   alias TruckOfTheDayClub.Repo
   alias TruckOfTheDayClub.Trucks.Truck
