@@ -1,10 +1,10 @@
-# TruckOfTheDayClub
+# Truck Of The Day Club
 
 Truck of the Day Club calls on the SODA devleoper API to obtain a list of all the current food trucks in San Fransisco, 
 and exposes one of them at a time in a simple web interface as the "truck of the day" in order to provide new ideas for what to eat for lunch!
 
 ### Installation
-Truck of the Day Club requires Erlang 24+ and Elixir 1.12+ If you do not have them installed already, 
+Truck of the Day Club requires Erlang 25+ and Elixir 1.14+ If you do not have them installed already, 
 please follow the excellent steps available at https://elixir-lang.org/install.html. 
 Make sure to have a current installation of PostgreSQL up and running as well, in order to host the database.
   
