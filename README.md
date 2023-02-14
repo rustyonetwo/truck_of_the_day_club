@@ -14,4 +14,4 @@ which will make a call to the target API and setup the database. A scheduled wor
 Start the application with `mix phx.server` and then access it at localhost:4000.
 
 ### Sample Screenshot
-![image](https://user-images.githubusercontent.com/10183208/218635735-8b87f326-e3e4-4477-b8b8-35ff6a494e19.png)
+![image](https://user-images.githubusercontent.com/10183208/218779961-5e789c94-81a0-4046-a5ac-b1d4a258ffe1.png)
