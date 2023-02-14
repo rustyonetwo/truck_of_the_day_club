@@ -5,9 +5,17 @@ defmodule TruckOfTheDayClubWeb.TrucksLive do
 
   def mount(_params, _session, socket) do
     socket =
-      socket
-      |> assign(:page_title, "Truck of the day club")
-      |> get_a_random_truck_and_assign()
+      if connected?(socket) do
+        socket
+        |> assign(:page_title, "Truck of the day club")
+        |> get_a_random_truck_and_assign()
+      else
+        socket
+        |> assign(:name, "")
+        |> assign(:location, "")
+        |> assign(:address, "")
+        |> assign(:food, "")
+      end
 
     {:ok, socket}
   end
@@ -16,23 +24,22 @@ defmodule TruckOfTheDayClubWeb.TrucksLive do
     {:noreply, get_a_random_truck_and_assign(socket)}
   end
 
+  @spec process_food_list(String.t()) :: String.t()
   defp process_food_list(food) do
     food
     |> String.split([":", ".", ",", "\n"], trim: true)
     |> Enum.map_join(", ", fn str -> String.capitalize(str) end)
   end
 
-  # TOTD is still being updated twice during page load
-  defp get_a_random_truck_and_assign(%{assigns: %{name: _name}} = socket), do: socket
-
+  @spec get_a_random_truck_and_assign(map()) :: map()
   defp get_a_random_truck_and_assign(socket) do
-    %{applicant: name, locationdescription: location, address: address, fooditems: food} =
-      Trucks.get_truck_of_the_day()
+    totd = Trucks.get_truck_of_the_day()
 
+    # using dot notation like this appeased the dialyzer but I usually avoid it b/c it will crash if the object is empty
     socket
-    |> assign(:name, name)
-    |> assign(:location, location)
-    |> assign(:address, address)
-    |> assign(:food, process_food_list(food))
+    |> assign(:name, totd.applicant)
+    |> assign(:location, totd.locationdescription)
+    |> assign(:address, totd.address)
+    |> assign(:food, process_food_list(totd.fooditems))
   end
 end

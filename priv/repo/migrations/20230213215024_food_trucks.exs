@@ -3,6 +3,7 @@ defmodule TruckOfTheDayClub.Repo.Migrations.FoodTrucks do
 
   def change do
     create table(:trucks) do
+      add :objectid, :string
       add :applicant, :string
       add :locationdescription, :text
       add :address, :string

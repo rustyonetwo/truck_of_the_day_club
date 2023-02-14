@@ -12,7 +12,6 @@ defmodule TruckOfTheDayClub.Trucks.UpdateTrucks do
   def ingest_current_trucks() do
     for truck <- get_current_trucks() do
       Trucks.create_or_update_truck(truck)
-      |> IO.inspect()
     end
   end
 

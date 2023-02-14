@@ -1,10 +1,10 @@
-<div class="mx-5/6 bg-blue-100">
-    <div class="items-center justify-center mx-5 w-5/6 pd-5">
-        <h2 class="text-lg">Today's Truck:</h2>
-        <div class="">Name: <%= @name %> </div>
-        <div>Address: <%= @address %></div>
-        <div>Near:  <%= @location %></div>
-        <div><p>Serving: <%= @food %></p></div>
+<div class="mx-5/6 bg-blue-100 rounded shadow py-2 my-5">
+    <div class="items-center mx-5 w-5/6 pd-5">
+        <h2 class="text-lg rounded-full px-2 my-1 bg-white">Today's Truck:</h2>
+        <div class="rounded-full px-2 my-1 bg-white">Name: <%= @name %> </div>
+        <div class="rounded-full px-2 my-1 bg-white">Address: <%= @address %></div>
+        <div class="rounded-lg px-2 my-1 bg-white">Near:  <%= @location %></div>
+        <div class="rounded-lg px-2 my-1 bg-white"><p>Serving: <%= @food %></p></div>
         <div class="flex items-center justify-center">
         <button class="text-sm border-solid rounded-md border-2 px-2 py-1 my-2 bg-gray-100" phx-click="new-truck">Pick a different food truck</button>
     </div>
