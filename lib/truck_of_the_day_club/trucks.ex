@@ -8,10 +8,6 @@ defmodule TruckOfTheDayClub.Trucks do
 
   import Ecto.Query, only: [from: 2]
 
-  def get_truck(id) do
-    Repo.get(Truck, id)
-  end
-
   def list_trucks() do
     Repo.all(Truck)
   end

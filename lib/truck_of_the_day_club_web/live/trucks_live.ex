@@ -9,7 +9,6 @@ defmodule TruckOfTheDayClubWeb.TrucksLive do
       |> assign(:page_title, "Truck of the day club")
       |> get_a_random_truck_and_assign()
 
-    IO.inspect(socket, limit: :infinity)
     {:ok, socket}
   end
 
