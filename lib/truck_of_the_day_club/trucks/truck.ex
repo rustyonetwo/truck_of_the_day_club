@@ -7,6 +7,7 @@ defmodule TruckOfTheDayClub.Trucks.Truck do
   import Ecto.Changeset
 
   @type t :: %__MODULE__{
+          objectid: String.t(),
           applicant: String.t(),
           locationdescription: String.t(),
           address: String.t(),
@@ -16,6 +17,7 @@ defmodule TruckOfTheDayClub.Trucks.Truck do
         }
 
   schema "trucks" do
+    field :objectid, :string
     field :applicant, :string
     field :locationdescription, :string
     field :address, :string
@@ -29,6 +31,7 @@ defmodule TruckOfTheDayClub.Trucks.Truck do
   def changeset(truck, attrs) do
     truck
     |> cast(attrs, [
+      :objectid,
       :applicant,
       :locationdescription,
       :address,
@@ -37,6 +40,7 @@ defmodule TruckOfTheDayClub.Trucks.Truck do
       :schedule
     ])
     |> validate_required([
+      :objectid,
       :applicant,
       :address,
       :status

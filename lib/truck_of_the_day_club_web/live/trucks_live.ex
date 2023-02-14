@@ -31,13 +31,11 @@ defmodule TruckOfTheDayClubWeb.TrucksLive do
     |> Enum.map_join(", ", fn str -> String.capitalize(str) end)
   end
 
-  # TOTD is still being updated twice during page load
   @spec get_a_random_truck_and_assign(map()) :: map()
-  # defp get_a_random_truck_and_assign(%{assigns: %{name: _name}} = socket), do: socket
-
   defp get_a_random_truck_and_assign(socket) do
     totd = Trucks.get_truck_of_the_day()
 
+    # using dot notation like this appeased the dialyzer but I usually avoid it b/c it will crash if the object is empty
     socket
     |> assign(:name, totd.applicant)
     |> assign(:location, totd.locationdescription)
